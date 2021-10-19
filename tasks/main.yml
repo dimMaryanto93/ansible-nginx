@@ -1,2 +1,25 @@
 ---
 # tasks file for ansible-nginx-example
+- name: Set up pre-requisites
+  block: 
+  - name: Setup firewall for Ubuntu
+    include_tasks: common/setup-ufw.yaml
+    when: ansible_facts['distribution'] == 'Ubuntu'
+
+  - name: Setup firewall for Centos
+    include_tasks: common/setup-firewall-cmd.yaml
+    when: ansible_facts['distribution'] == 'CentOS'
+
+  - name: Configure selinux to be permisive on CentOS
+    include_tasks: common/setup-selinux.yaml
+    when: ansible_facts['distribution'] == 'CentOS'
+
+- name: Install nginx package
+  block: 
+    - name: Installing package for Ubuntu
+      include_tasks: package/setup-ubuntu.yaml
+      when: ansible_facts['distribution'] == 'Ubuntu'
+      
+    - name: Installing package for Centos
+      include_tasks: package/setup-ubuntu.yaml
+      when: ansible_facts['distribution'] == 'CentOS'

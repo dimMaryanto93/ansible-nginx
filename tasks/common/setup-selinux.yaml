@@ -1,0 +1,6 @@
+---
+- name: Set SELinux mode to permissive on Centos
+  selinux:
+    state: permissive
+    policy: targeted
+

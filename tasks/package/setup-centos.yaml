@@ -1,0 +1,14 @@
+---
+- name: Install Dependencies for Centos
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop: [  "epel-release" ]
+
+- name: Install nginx package for Centos
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop: [  "nginx" ]
+  notify: 
+

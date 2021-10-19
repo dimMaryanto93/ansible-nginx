@@ -1,0 +1,13 @@
+---
+- name: Update ubuntu package
+  apt: 
+    update_cache: yes 
+    force_apt_get: yes
+    cache_valid_time: 3600
+
+- name: Install Nginx for Ubuntu
+  apt:
+    name: "{{ item }}"
+    state: latest
+  loop: [ "nginx" ]
+  notify: Restart nginx

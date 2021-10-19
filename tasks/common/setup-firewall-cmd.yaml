@@ -1,0 +1,12 @@
+---
+- name: firewall-cmd Add rules for Nginx on CentOS
+  ansible.posix.firewalld:
+    service : "{{ item }}"
+    permanent: yes
+    state: enabled
+    zone: public
+  loop: 
+    - http
+    - https
+  notify: 
+    - Reload firewalld
