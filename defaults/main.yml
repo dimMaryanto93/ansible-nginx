@@ -2,5 +2,4 @@
 # defaults file for ansible-nginx-example
 nginx:
   domain_name: "<your.site.com>"
-  root_document_location: /usr/share/nginx/html
-  user: nginx
+  root_document_location: /var/www/html
