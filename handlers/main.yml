@@ -4,3 +4,8 @@
   service:
     name: nginx
     state: restarted
+
+- name: Reload firewalld
+  systemd:
+    name: firewalld
+    state: reloaded

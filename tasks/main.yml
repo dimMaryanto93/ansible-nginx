@@ -11,10 +11,10 @@
       when: ansible_facts['distribution'] == 'Ubuntu'
       
     - name: Installing package for Centos
-      include_tasks: package/setup-ubuntu.yaml
+      include_tasks: package/setup-centos.yaml
       when: ansible_facts['distribution'] == 'CentOS'
 
-- name: Set up firewall for allow http(s)
+- name: Setup firewall for allow http(s)
   block: 
   - name: Setup firewall for Ubuntu
     include_tasks: common/setup-ufw.yaml
@@ -23,3 +23,8 @@
   - name: Setup firewall for Centos
     include_tasks: common/setup-firewall-cmd.yaml
     when: ansible_facts['distribution'] == 'CentOS'
+
+- name: Setup default configuration for nginx
+  block: 
+  - name: Copy default.conf nginx for Ubuntu
+    include_tasks: config/default-config.yaml
