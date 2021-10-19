@@ -2,6 +2,6 @@
 - name: ufw Add rules for Nginx on Ubuntu
   community.general.ufw:
     rule: allow
-    port: "{{ item }}"
+    name: "{{ item }}"
   loop: 
     - "Nginx Full" 
