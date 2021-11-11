@@ -1,0 +1,25 @@
+galaxy_info:
+    role_name: nginx
+    author: dimasm93
+    description: Install gitlab-runner with docker executor
+    company: PT. Tabeldata Informatika
+
+    license: license (GPL-2.0-or-later, MIT, etc)
+
+    min_ansible_version: 2.9
+
+    platforms:
+        - name: CentOS
+          versions:
+            - 8
+            - 7
+        - name: Ubuntu
+          versions:
+            - 20.04
+            - 21.10
+
+    galaxy_tags: 
+    - nginx
+    - web-server
+  
+dependencies: []
