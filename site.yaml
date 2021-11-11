@@ -1,6 +1,0 @@
----
-- name: Installing nginx web server
-  hosts: all
-  become: true
-  roles: 
-    - ./
